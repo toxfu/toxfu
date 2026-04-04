@@ -30,8 +30,6 @@
 <table align="center">
 <tr border="none">
 <td width="50%" align="center">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=toxfu&theme=dark&show_icons=true&count_private=true" />
-  <br><br>
   <img title="🔥 Streak stats" src="https://github-readme-streak-stats.herokuapp.com/?user=toxfu&theme=dark&hide_border=false" />
 </td>
 <td width="50%" align="center">
