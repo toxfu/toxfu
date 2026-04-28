@@ -10,7 +10,7 @@
 
 <div id="user-content-toc">
   <ul align="center">
-    <summary><h3 style="display: inline-block">Self-taught software engineer. I build things that work: AI agents, automation scripts, data pipelines, web & desktop apps, and databases. No fluff — just clear deliverables.</h3></summary>
+    <summary><h3 style="display: inline-block">I build things that work: AI agents, automation scripts, data pipelines, web & desktop apps, and databases. No fluff — just clear deliverables.</h3></summary>
   </ul>
 </div>
 
