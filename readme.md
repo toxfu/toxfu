@@ -27,16 +27,9 @@
 ## 📊 GitHub Stats
 
 <p align="center">
-<table align="center">
-<tr border="none">
-<td width="50%" align="center">
-  <img title="🔥 Streak stats" src="https://github-readme-streak-stats.herokuapp.com/?user=toxfu&theme=dark&hide_border=false" />
-</td>
-<td width="50%" align="center">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=toxfu&theme=dark&hide_border=false&hide=jupyter%20notebook&langs_count=10"/>
-</td>
-</tr>
-</table>
+  <img
+    src="https://github-stats-extended.vercel.app/api/top-langs/?username=toxfu&layout=normal&langs_count=6&hide=Jupyter%20Notebook&custom_title=Most%20Used%20Languages&bg_color=45,142A3A,24465F&title_color=FFFFFF&text_color=FFFFFF&border_color=FFFFFF&border_radius=8&prog_bar_bg_color=FFFFFF"
+  />
 </p>
 
 <br>
