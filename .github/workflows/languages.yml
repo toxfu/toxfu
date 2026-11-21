@@ -1,0 +1,126 @@
+
+name: Update language stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  languages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate SVG
+        env:
+          GH_TOKEN: ${{ secrets.STATS_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request
+          from collections import Counter
+          from html import escape
+
+          token = os.environ["GH_TOKEN"]
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github+json",
+          }
+
+          def get(url):
+              req = urllib.request.Request(url, headers=headers)
+              with urllib.request.urlopen(req) as r:
+                  return json.load(r)
+
+          totals = Counter()
+          page = 1
+
+          while True:
+              repos = get(
+                  "https://api.github.com/user/repos"
+                  f"?visibility=all&affiliation=owner"
+                  f"&per_page=100&page={page}"
+              )
+              if not repos:
+                  break
+              for repo in repos:
+                  if repo["owner"]["login"].lower() != "toxfu":
+                      continue
+                  if repo["fork"]:
+                      continue
+                  langs = get(repo["languages_url"])
+                  for lang, size in langs.items():
+                      if lang != "Jupyter Notebook":
+                          totals[lang] += size
+              page += 1
+
+          top = totals.most_common(6)
+          total = sum(totals.values()) or 1
+
+          colors = {
+              "Python": "#3572A5",
+              "Rust": "#DEA584",
+              "TypeScript": "#3178C6",
+              "JavaScript": "#F1E05A",
+              "HTML": "#E34C26",
+              "CSS": "#563D7C",
+              "Go": "#00ADD8",
+              "C": "#555555",
+              "C++": "#F34B7D",
+              "Java": "#B07219",
+          }
+
+          lines = [
+              '<svg xmlns="http://www.w3.org/2000/svg" '
+              'width="460" height="300" viewBox="0 0 460 300">',
+              '<defs><linearGradient id="bg" x2="1" y2="1">',
+              '<stop stop-color="#142A3A"/>',
+              '<stop offset="1" stop-color="#24465F"/>',
+              '</linearGradient></defs>',
+              '<rect width="459" height="299" rx="8" '
+              'fill="url(#bg)" stroke="white"/>',
+              '<text x="24" y="37" fill="white" '
+              'font-size="19" font-weight="bold" '
+              'font-family="Arial">Most Used Languages</text>',
+          ]
+
+          for i, (lang, size) in enumerate(top):
+              y = 65 + i * 37
+              pct = size / total * 100
+              width = 300 * pct / 100
+              color = colors.get(lang, "#8B9DC3")
+              lines += [
+                  f'<text x="24" y="{y}" fill="white" '
+                  f'font-size="13" font-family="Arial">'
+                  f'{escape(lang)}</text>',
+                  f'<text x="432" y="{y}" text-anchor="end" '
+                  f'fill="white" font-size="13" '
+                  f'font-family="Arial">{pct:.1f}%</text>',
+                  f'<rect x="24" y="{y+7}" width="300" '
+                  f'height="7" rx="3" fill="#FFFFFF" '
+                  f'opacity=".25"/>',
+                  f'<rect x="24" y="{y+7}" '
+                  f'width="{width:.2f}" height="7" '
+                  f'rx="3" fill="{color}"/>',
+              ]
+
+          lines.append("</svg>")
+          os.makedirs("assets", exist_ok=True)
+          with open("assets/languages.svg", "w") as f:
+              f.write("\n".join(lines))
+          PY
+
+      - name: Commit SVG
+        run: |
+          git add assets/languages.svg
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update language statistics"
+          git push
