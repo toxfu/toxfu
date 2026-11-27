@@ -6,27 +6,27 @@
 <rect width="459" height="299" rx="8" fill="url(#bg)" stroke="white"/>
 <text x="24" y="37" fill="white" font-size="19" font-weight="bold" font-family="Arial">Most Used Languages</text>
 <text x="24" y="65" fill="white" font-size="13" font-family="Arial">HTML</text>
-<text x="432" y="65" text-anchor="end" fill="white" font-size="13" font-family="Arial">41.7%</text>
+<text x="432" y="65" text-anchor="end" fill="white" font-size="13" font-family="Arial">40.5%</text>
 <rect x="24" y="72" width="300" height="7" rx="3" fill="#FFFFFF" opacity=".25"/>
-<rect x="24" y="72" width="125.04" height="7" rx="3" fill="#E34C26"/>
+<rect x="24" y="72" width="121.63" height="7" rx="3" fill="#E34C26"/>
 <text x="24" y="102" fill="white" font-size="13" font-family="Arial">Python</text>
-<text x="432" y="102" text-anchor="end" fill="white" font-size="13" font-family="Arial">40.8%</text>
+<text x="432" y="102" text-anchor="end" fill="white" font-size="13" font-family="Arial">39.6%</text>
 <rect x="24" y="109" width="300" height="7" rx="3" fill="#FFFFFF" opacity=".25"/>
-<rect x="24" y="109" width="122.27" height="7" rx="3" fill="#3572A5"/>
+<rect x="24" y="109" width="118.94" height="7" rx="3" fill="#3572A5"/>
 <text x="24" y="139" fill="white" font-size="13" font-family="Arial">Rust</text>
-<text x="432" y="139" text-anchor="end" fill="white" font-size="13" font-family="Arial">9.7%</text>
+<text x="432" y="139" text-anchor="end" fill="white" font-size="13" font-family="Arial">12.2%</text>
 <rect x="24" y="146" width="300" height="7" rx="3" fill="#FFFFFF" opacity=".25"/>
-<rect x="24" y="146" width="29.06" height="7" rx="3" fill="#DEA584"/>
+<rect x="24" y="146" width="36.45" height="7" rx="3" fill="#DEA584"/>
 <text x="24" y="176" fill="white" font-size="13" font-family="Arial">QML</text>
-<text x="432" y="176" text-anchor="end" fill="white" font-size="13" font-family="Arial">4.9%</text>
+<text x="432" y="176" text-anchor="end" fill="white" font-size="13" font-family="Arial">4.8%</text>
 <rect x="24" y="183" width="300" height="7" rx="3" fill="#FFFFFF" opacity=".25"/>
-<rect x="24" y="183" width="14.76" height="7" rx="3" fill="#8B9DC3"/>
+<rect x="24" y="183" width="14.36" height="7" rx="3" fill="#8B9DC3"/>
 <text x="24" y="213" fill="white" font-size="13" font-family="Arial">TypeScript</text>
 <text x="432" y="213" text-anchor="end" fill="white" font-size="13" font-family="Arial">1.0%</text>
 <rect x="24" y="220" width="300" height="7" rx="3" fill="#FFFFFF" opacity=".25"/>
-<rect x="24" y="220" width="3.04" height="7" rx="3" fill="#3178C6"/>
+<rect x="24" y="220" width="2.96" height="7" rx="3" fill="#3178C6"/>
 <text x="24" y="250" fill="white" font-size="13" font-family="Arial">JavaScript</text>
 <text x="432" y="250" text-anchor="end" fill="white" font-size="13" font-family="Arial">0.6%</text>
 <rect x="24" y="257" width="300" height="7" rx="3" fill="#FFFFFF" opacity=".25"/>
-<rect x="24" y="257" width="1.94" height="7" rx="3" fill="#F1E05A"/>
+<rect x="24" y="257" width="1.89" height="7" rx="3" fill="#F1E05A"/>
 </svg>
